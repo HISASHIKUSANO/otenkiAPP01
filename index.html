@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お天気アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-cloud-sun"></i>
+                お天気アプリ
+            </h1>
+        </header>
+
+        <main class="main-content">
+            <!-- ローディング表示 -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>天気情報を取得中...</p>
+            </div>
+
+            <!-- エラー表示 -->
+            <div id="error" class="error hidden">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p id="error-message">エラーが発生しました</p>
+                <button id="retry-btn" class="retry-btn">
+                    <i class="fas fa-refresh"></i>
+                    再試行
+                </button>
+            </div>
+
+            <!-- 現在の天気 -->
+            <section id="current-weather" class="current-weather hidden">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="location-name">現在地</span>
+                </div>
+                
+                <div class="current-temp-container">
+                    <div class="weather-icon-large">
+                        <img id="current-icon" src="" alt="">
+                    </div>
+                    <div class="current-temp">
+                        <span id="current-temperature">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                </div>
+
+                <div class="current-description">
+                    <p id="current-desc">--</p>
+                </div>
+
+                <div class="current-details">
+                    <div class="detail-item">
+                        <i class="fas fa-eye"></i>
+                        <span>体感温度</span>
+                        <span id="feels-like">--°C</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <span>湿度</span>
+                        <span id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <span>風速</span>
+                        <span id="wind-speed">-- m/s</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3日間の予報 -->
+            <section id="forecast" class="forecast hidden">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    3日間の予報
+                </h2>
+                <div class="forecast-container">
+                    <div class="forecast-item">
+                        <div class="forecast-day" id="day-0">今日</div>
+                        <div class="forecast-icon">
+                            <img id="icon-0" src="" alt="">
+                        </div>
+                        <div class="forecast-temps">
+                            <span class="temp-high" id="high-0">--°</span>
+                            <span class="temp-low" id="low-0">--°</span>
+                        </div>
+                        <div class="forecast-desc" id="desc-0">--</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day" id="day-1">明日</div>
+                        <div class="forecast-icon">
+                            <img id="icon-1" src="" alt="">
+                        </div>
+                        <div class="forecast-temps">
+                            <span class="temp-high" id="high-1">--°</span>
+                            <span class="temp-low" id="low-1">--°</span>
+                        </div>
+                        <div class="forecast-desc" id="desc-1">--</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day" id="day-2">明後日</div>
+                        <div class="forecast-icon">
+                            <img id="icon-2" src="" alt="">
+                        </div>
+                        <div class="forecast-temps">
+                            <span class="temp-high" id="high-2">--°</span>
+                            <span class="temp-low" id="low-2">--°</span>
+                        </div>
+                        <div class="forecast-desc" id="desc-2">--</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 更新時刻 -->
+            <div id="last-updated" class="last-updated hidden">
+                <i class="fas fa-clock"></i>
+                最終更新: <span id="update-time">--</span>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 お天気アプリ - Powered by OpenWeatherMap</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
